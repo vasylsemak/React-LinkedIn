@@ -5,14 +5,14 @@ const App = () => {
   const [emotion, setEmotion] = useState('happy')
   useEffect(() => {
     console.log(`Watch changing emotion: ${emotion}`)
-  }, [])
+  }, [emotion])
 
   return (
-    <div className="app">
+    <>
       <h1>Currrent emotion is: {emotion}.</h1>
       <button onClick={() => setEmotion('frustrated')}>Frustrated</button>
       <button onClick={() => setEmotion('happy')}>Happy</button>
-    </div>
+    </>
   )
 }
 
