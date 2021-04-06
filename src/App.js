@@ -3,6 +3,7 @@ import './App.css'
 
 const App = () => {
   const [emotion, setEmotion] = useState('happy')
+
   useEffect(() => {
     console.log(`Watch changing emotion: ${emotion}`)
   }, [emotion])
