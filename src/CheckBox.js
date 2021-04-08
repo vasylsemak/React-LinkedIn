@@ -9,8 +9,8 @@ const CheckBox = () => {
 
   return (
     <div style={{marginTop:"3rem"}}>
-      <input type="checkbox" onChange={toggle} />
-      <h3>{checked ? 'checked' : 'not checked'}</h3>
+      <label htmlFor="checkbox">{ checked ? 'checked' : 'not checked' }</label>
+      <input id="checkbox" type="checkbox" value={checked} onChange={toggle} />
     </div>
   )
 }
