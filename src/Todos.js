@@ -13,11 +13,8 @@ const Todos = () => {
       case REMOVE_TODO:
         return state.filter(t => t.id !== action.id)
       case TOGGLE_DONE:
-        const done = state.map(t => (t.id === action.id)
-          ? {...t, complete: !t.complete} : t)
-
-          console.log("Done --> ", done.length)
-          return done
+        return state.map(t => (t.id === action.id)
+          ? { ...t, complete: !t.complete } : t)
       default:
         return state
     }
@@ -57,7 +54,7 @@ const Todos = () => {
       </form>
       <ul>
         {
-          todos.map(t => <Todo key={t.id} todo={t} dispatch={dispatch} />)
+          todos.map(t => <Todo key={t.id} {...t} dispatch={dispatch} />)
         }
       </ul>
     </>
