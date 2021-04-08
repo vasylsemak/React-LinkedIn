@@ -34,6 +34,21 @@
   margin: auto 1rem;
 }
 
+.add-btn {
+  margin: 1rem;
+  padding: 0.3rem;
+  font-size: 1.5rem;
+  background-color: rgb(207, 207, 207);
+}
+
+.todos input {
+  font-size: 2rem;
+}
+
+.todo-li {
+  display: flex;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

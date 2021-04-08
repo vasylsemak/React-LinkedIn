@@ -2,6 +2,7 @@ import React from 'react'
 import App from './App'
 import CheckBox from './CheckBox'
 import Counter from './Counter'
+import Todos from './Todos'
 import './App.css'
 
 const Main = () => (
@@ -9,6 +10,7 @@ const Main = () => (
     <App />
     <CheckBox />
     <Counter />
+    <Todos />
   </div>
 )
 
