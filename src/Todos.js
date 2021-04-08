@@ -2,16 +2,27 @@ import React, { useState, useReducer } from 'react'
 import Todo from './Todo'
 
 const ADD_TODO = 'ADD_TODO'
+export const REMOVE_TODO = 'REMOVE_TODO'
+export const TOGGLE_DONE = 'TOGGLE_DONE'
 
 const Todos = () => {
   function reducer(state, action) {
     switch (action.type) {
       case ADD_TODO:
         return [...state, addTodo(action.todo)]
+      case REMOVE_TODO:
+        return state.filter(t => t.id !== action.id)
+      case TOGGLE_DONE:
+        const done = state.map(t => (t.id === action.id)
+          ? {...t, complete: !t.complete} : t)
+
+          console.log("Done --> ", done.length)
+          return done
       default:
         return state
     }
   }
+
   function addTodo(todo) {
     return {
       id: Date.now(),
@@ -21,7 +32,11 @@ const Todos = () => {
   }
 
   const [task, setTask] = useState('')
-  const [todos, dispatch] = useReducer(reducer, [{ id: 1, complete: false, name: "Work" }])
+  const [todos, dispatch] = useReducer(reducer, [
+    { id: 1, name: "Eat", complete: false },
+    { id: 2, name: "Pray", complete: false },
+    { id: 3, name: "Love", complete: false },
+  ])
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -30,15 +45,22 @@ const Todos = () => {
   }
 
   return (
-    <form className="todos" onSubmit={(e) => handleSubmit(e)}>
-      <input type="text" name="task" value={task} onChange={e => setTask(e.target.value)} />
-      <button className="add-btn">ADD</button>
+    <>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <input
+          id="todo-form"
+          type="text"
+          value={task}
+          onChange={e => setTask(e.target.value)}
+        />
+        <button className="add-btn">ADD</button>
+      </form>
       <ul>
         {
-          todos.map(t => <Todo key={t.id} {...t} />)
+          todos.map(t => <Todo key={t.id} todo={t} dispatch={dispatch} />)
         }
       </ul>
-    </form>
+    </>
   )
 }
 

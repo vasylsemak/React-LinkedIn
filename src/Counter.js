@@ -23,11 +23,14 @@ const Counter = () => {
   const [state, dispatch] = useReducer(reducer, { count: 0 })
 
   return (
-    <div className="counter">
-      <button className="btn" onClick={decrement}>-</button>
-      <h1>{state.count}</h1>
-      <button className="btn" onClick={increment}>+</button>
-    </div>
+    <>
+      <h2 id="counter-h2">COUNTER</h2>
+      <div className="counter">
+        <button className="btn" onClick={decrement}>-</button>
+        <h1>{state.count}</h1>
+        <button className="btn" onClick={increment}>+</button>
+      </div>
+    </>
   )
 }
 

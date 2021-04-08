@@ -1,5 +1,6 @@
 .app {
   margin: 2rem;
+  margin-left: 5rem;
 }
 
 .app-header {
@@ -18,20 +19,27 @@
 }
 
 .counter {
-  margin-top: 3rem;
   display: flex;
+  margin-bottom: 2rem;
 }
 
 .counter h1 {
+  margin: 1rem;
   font-size: 5rem;
   color: #005870;
+}
+#counter-h2 {
+  font-size: 3rem;
+  color: #4f5663;
+  margin-left: 1.5rem;
+  margin-bottom: 0;
 }
 
 .btn {
   font-size: 2rem;
   background-color: rgb(207, 207, 207);
   width: 4rem;
-  margin: auto 1rem;
+  margin: 1rem;
 }
 
 .add-btn {
@@ -41,12 +49,20 @@
   background-color: rgb(207, 207, 207);
 }
 
-.todos input {
+#todo-form {
   font-size: 2rem;
 }
-
-.todo-li {
+.li {
   display: flex;
+}
+.complete,
+.delete {
+  display: inline-block;
+  background-color: rgb(202, 84, 84);
+  font-size: 1rem;
+}
+.complete {
+  background-color: rgb(104, 226, 104);
 }
 
 @keyframes App-logo-spin {
